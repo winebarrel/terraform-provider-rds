@@ -17,3 +17,7 @@ build: vet
 install: build
 	mkdir -p ~/.terraform.d/plugins/${HOSTNAME}/${NAMESPACE}/${NAME}/${VERSION}/${GOOS}_${GOARCH}
 	mv ${BINARY} ~/.terraform.d/plugins/${HOSTNAME}/${NAMESPACE}/${NAME}/${VERSION}/${GOOS}_${GOARCH}
+
+json:
+	curl -sSfL https://instances.vantage.sh/rds/instances.json \
+	| jq 'map({key: .instanceType,value: .memory | tonumber}) | sort_by(.key) | from_entries' > rds.json
