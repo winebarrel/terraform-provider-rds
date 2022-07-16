@@ -20,4 +20,4 @@ install: build
 
 json:
 	curl -sSfL https://instances.vantage.sh/rds/instances.json \
-	| jq 'map({key: .instanceType,value: .memory | tonumber}) | sort_by(.key) | from_entries' > rds.json
+	| jq 'map({key: .instanceType,value: .memory | tonumber}) | sort_by(.key) | from_entries' > rds/rds.json
