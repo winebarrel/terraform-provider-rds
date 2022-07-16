@@ -5,6 +5,8 @@ import (
 	_ "embed"
 	"encoding/json"
 
+	"github.com/aws/aws-sdk-go-v2/config"
+	sdkrds "github.com/aws/aws-sdk-go-v2/service/rds"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
@@ -33,5 +35,13 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 		panic(err)
 	}
 
-	return nil, diags
+	cfg, err := config.LoadDefaultConfig(ctx)
+
+	if err != nil {
+		return nil, diag.FromErr(err)
+	}
+
+	svc := sdkrds.NewFromConfig(cfg)
+
+	return svc, diags
 }
