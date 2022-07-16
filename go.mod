@@ -3,6 +3,7 @@ module github.com/winebarrel/terraform-provider-rds
 go 1.18
 
 require (
+	github.com/aws/aws-sdk-go-v2 v1.16.7
 	github.com/aws/aws-sdk-go-v2/config v1.15.14
 	github.com/aws/aws-sdk-go-v2/service/rds v1.22.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.19.0
@@ -11,7 +12,6 @@ require (
 require (
 	github.com/agext/levenshtein v1.2.2 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
-	github.com/aws/aws-sdk-go-v2 v1.16.7 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.12.9 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.12.8 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/configsources v1.1.14 // indirect

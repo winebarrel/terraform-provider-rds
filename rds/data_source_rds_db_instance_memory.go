@@ -39,9 +39,7 @@ func dataSourceRdsDbInstanceMemoryRead(ctx context.Context, d *schema.ResourceDa
 		}
 	}
 
-	err := d.Set("memory", mem)
-
-	if err != nil {
+	if err := d.Set("memory", mem); err != nil {
 		return diag.FromErr(err)
 	}
 

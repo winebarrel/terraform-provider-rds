@@ -20,6 +20,7 @@ func Provider() *schema.Provider {
 	return &schema.Provider{
 		DataSourcesMap: map[string]*schema.Resource{
 			"rds_db_instance_memory": dataSourceRdsDbInstanceMemory(),
+			"rds_db_instances":       dataSourceRdsDbInstances(),
 		},
 		ConfigureContextFunc: providerConfigure,
 	}
@@ -28,9 +29,7 @@ func Provider() *schema.Provider {
 func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
 	var diags diag.Diagnostics
 
-	err := json.Unmarshal(rdsJson, &memoryByDBInstanceClass)
-
-	if err != nil {
+	if err := json.Unmarshal(rdsJson, &memoryByDBInstanceClass); err != nil {
 		// must not happen
 		panic(err)
 	}
