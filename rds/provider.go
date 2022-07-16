@@ -19,8 +19,9 @@ var memoryByDBInstanceClass map[string]float64
 func Provider() *schema.Provider {
 	return &schema.Provider{
 		DataSourcesMap: map[string]*schema.Resource{
-			"rds_db_instance_memory": dataSourceRdsDbInstanceMemory(),
-			"rds_db_instances":       dataSourceRdsDbInstances(),
+			"rds_db_instance_memory":     dataSourceRdsDbInstanceMemory(),
+			"rds_db_instance_memory_map": dataSourceRdsDbInstanceMemoryMap(),
+			"rds_db_instances":           dataSourceRdsDbInstances(),
 		},
 		ConfigureContextFunc: providerConfigure,
 	}

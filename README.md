@@ -21,12 +21,20 @@ data "rds_db_instance_memory" "rds" {
   instance_class = each.value
 }
 
+date "rds_db_instance_memory_map" "rds" {
+}
+
 data "rds_db_instances" "rds" {
 }
 
 output "rds" {
   description = "rds"
   value       = data.rds_db_instance_memory.rds
+}
+
+output "memory_map" {
+  description = "rds"
+  value       = data.rds_db_instance_memory_map.rds.memory_by_instance_class
 }
 ```
 
@@ -43,6 +51,12 @@ rds = {
     "instance_class" = "db.t3.micro"
     "memory" = 1
   }
+  ...
+}
+memory_map = tomap({
+  "db.m1.large" = 7.5
+  "db.m1.medium" = 3.75
+  "db.m1.small" = 1.7
   ...
 }
 ```
