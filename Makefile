@@ -1,4 +1,4 @@
-HOSTNAME=github.com
+HOSTNAME=registry.terraform.io
 NAMESPACE=winebarrel
 NAME=rds
 BINARY=terraform-provider-${NAME}
@@ -6,7 +6,7 @@ VERSION=0.1.0
 GOOS=$(shell go env GOOS)
 GOARCH=$(shell go env GOARCH)
 
-default: install
+default: build
 
 vet:
 	go vet ./...
