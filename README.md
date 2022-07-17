@@ -17,7 +17,7 @@ provider "rds" {
 }
 
 data "rds_db_instance_memory" "rds" {
-  for_each       = { for i in data.rds_db_instances.test.instances : i.name => i.instance_class }
+  for_each       = { for i in data.rds_db_instances.rds.instances : i.name => i.instance_class }
   instance_class = each.value
 }
 
