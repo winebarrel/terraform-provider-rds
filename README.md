@@ -25,6 +25,10 @@ date "rds_db_instance_memory_map" "rds" {
 }
 
 data "rds_db_instances" "rds" {
+  # filter {
+  #   name   = "db-instance-id"
+  #   values = ["database-1"]
+  # }
 }
 
 output "rds" {
