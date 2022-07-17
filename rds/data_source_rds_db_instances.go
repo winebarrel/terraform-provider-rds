@@ -66,7 +66,7 @@ func dataSourceRdsDbInstancesRead(ctx context.Context, d *schema.ResourceData, m
 	}
 
 	for {
-		output, err := svc.DescribeDBInstances(context.Background(), input)
+		output, err := svc.DescribeDBInstances(ctx, input)
 
 		if err != nil {
 			return diag.FromErr(err)
