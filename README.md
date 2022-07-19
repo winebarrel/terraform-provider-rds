@@ -16,15 +16,15 @@ terraform {
 provider "rds" {
 }
 
-data "rds_db_instance_memory" "rds" {
-  for_each       = { for i in data.rds_db_instances.rds.instances : i.name => i.instance_class }
+data "rds_db_instance_memory" "main" {
+  for_each       = { for i in data.rds_db_instances.main.instances : i.name => i.instance_class }
   instance_class = each.value
 }
 
-data "rds_db_instance_memory_map" "rds" {
+data "rds_db_instance_memory_map" "main" {
 }
 
-data "rds_db_instances" "rds" {
+data "rds_db_instances" "main" {
   # filter {
   #   name   = "db-instance-id"
   #   values = ["database-1"]
@@ -33,12 +33,12 @@ data "rds_db_instances" "rds" {
 
 output "rds" {
   description = "rds"
-  value       = data.rds_db_instance_memory.rds
+  value       = data.rds_db_instance_memory.main
 }
 
 output "memory_map" {
   description = "rds"
-  value       = data.rds_db_instance_memory_map.rds.memory_by_instance_class
+  value       = data.rds_db_instance_memory_map.main.memory_by_instance_class
 }
 ```
 
