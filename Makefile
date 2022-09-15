@@ -2,7 +2,7 @@ HOSTNAME=registry.terraform.io
 NAMESPACE=winebarrel
 NAME=rds
 BINARY=terraform-provider-${NAME}
-VERSION=0.1.0
+VERSION=0.1.3
 GOOS=$(shell go env GOOS)
 GOARCH=$(shell go env GOARCH)
 
