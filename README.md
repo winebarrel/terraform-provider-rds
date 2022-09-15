@@ -17,7 +17,7 @@ provider "rds" {
 }
 
 data "rds_db_instance_memory" "main" {
-  for_each       = { for i in data.rds_db_instances.main.instances : i.name => i.instance_class }
+  for_each       = { for i in data.rds_db_instances.main.instances : i.name => i.instance_class if i.tags["Env"] == "production" }
   instance_class = each.value
 }
 
