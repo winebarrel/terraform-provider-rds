@@ -47,6 +47,11 @@ func dataSourceRdsDbInstances() *schema.Resource {
 							Type:     schema.TypeString,
 							Computed: true,
 						},
+						"tags": {
+							Type:     schema.TypeMap,
+							Computed: true,
+							Elem:     &schema.Schema{Type: schema.TypeString},
+						},
 					},
 				},
 			},
@@ -76,6 +81,13 @@ func dataSourceRdsDbInstancesRead(ctx context.Context, d *schema.ResourceData, m
 			instance := map[string]interface{}{}
 			instance["name"] = aws.ToString(i.DBInstanceIdentifier)
 			instance["instance_class"] = aws.ToString(i.DBInstanceClass)
+			tags := map[string]string{}
+
+			for _, tag := range i.TagList {
+				tags[aws.ToString(tag.Key)] = aws.ToString(tag.Value)
+			}
+
+			instance["tags"] = tags
 			instances = append(instances, instance)
 		}
 
