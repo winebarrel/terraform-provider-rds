@@ -54,6 +54,9 @@ rds = {
     "id" = "terraform-20220716115109174100000002"
     "instance_class" = "db.t3.micro"
     "memory" = 1
+    "tags" = {
+      "Env" = "production"
+    }
   }
   ...
 }
