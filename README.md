@@ -69,3 +69,10 @@ memory_map = tomap({
   ...
 }
 ```
+
+## Run locally for development
+
+```sh
+cp rds.tf.sample rds.tf
+make tf-plan
+```

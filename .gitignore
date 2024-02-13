@@ -1,3 +1,6 @@
 terraform-provider-rds
-
+/terraform-provider-cronplan
+/*.tf
+/*.tfstate*
+/dev.tfrc
 dist/
