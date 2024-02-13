@@ -1,0 +1,28 @@
+terraform {
+  required_providers {
+    rds = {
+      source = "winebarrel/rds"
+    }
+  }
+}
+
+data "rds_db_instance_memory" "main" {
+  for_each       = { for i in data.rds_db_instances.main.instances : i.name => i.instance_class }
+  instance_class = each.value
+}
+
+data "rds_db_instance_memory_map" "main" {
+}
+
+data "rds_db_instances" "main" {
+}
+
+output "rds" {
+  description = "rds"
+  value       = data.rds_db_instance_memory.main
+}
+
+output "memory_map" {
+  description = "rds"
+  value       = data.rds_db_instance_memory_map.main.memory_by_instance_class
+}
