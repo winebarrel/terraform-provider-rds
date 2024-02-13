@@ -1,5 +1,7 @@
 # terraform-provider-rds
 
+[![CI](https://github.com/winebarrel/terraform-provider-rds/actions/workflows/ci.yml/badge.svg)](https://github.com/winebarrel/terraform-provider-rds/actions/workflows/ci.yml)
+
 It is a provider to get the amount of memory for each instance class of RDS.
 
 ## Usage
