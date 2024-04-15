@@ -5,7 +5,7 @@ go 1.21.7
 require (
 	github.com/aws/aws-sdk-go-v2 v1.26.1
 	github.com/aws/aws-sdk-go-v2/config v1.27.11
-	github.com/aws/aws-sdk-go-v2/service/rds v1.76.1
+	github.com/aws/aws-sdk-go-v2/service/rds v1.77.1
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.33.0
 )
 
