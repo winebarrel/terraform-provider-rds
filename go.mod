@@ -7,7 +7,7 @@ toolchain go1.25.0
 require (
 	github.com/aws/aws-sdk-go-v2 v1.38.1
 	github.com/aws/aws-sdk-go-v2/config v1.31.2
-	github.com/aws/aws-sdk-go-v2/service/rds v1.103.2
+	github.com/aws/aws-sdk-go-v2/service/rds v1.103.3
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.37.0
 )
 
