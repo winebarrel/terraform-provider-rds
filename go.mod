@@ -2,7 +2,7 @@ module github.com/winebarrel/terraform-provider-rds
 
 go 1.25.8
 
-toolchain go1.26.3
+toolchain go1.26.4
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.41.9
